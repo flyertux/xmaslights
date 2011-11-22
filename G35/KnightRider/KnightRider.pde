@@ -8,6 +8,8 @@
 // for broadcast messages.
 #define LIGHT_COUNT 50
 
+#define SIZE 20
+
 G35 lights(OUT_PIN, LIGHT_COUNT);  // Constructor
 
 void setup() {
@@ -16,35 +18,34 @@ void setup() {
 }
 
 void loop() {
-  
+  lights.fill_color(0, SIZE, G35::MAX_INTENSITY, COLOR_BLACK);
   // loop from the lowest pin to the highest
-  for (int thisLed = 0; thisLed < LIGHT_COUNT; thisLed++) {
+  for (int thisLed = 0; thisLed < SIZE; thisLed++) {
     int count = 1;
     lights.set_color(thisLed, G35::MAX_INTENSITY, COLOR_RED);
-    while (count <= 3) {
+    while (count <= 5) {
       int omfg = thisLed + count;
-      if (omfg > LIGHT_COUNT) {
-        lights.set_color(LIGHT_COUNT + 1, G35::MAX_INTENSITY, COLOR_BLACK);
+      if (omfg > SIZE) {
         count++;
       } else {
         lights.set_color(omfg, G35::MAX_INTENSITY, COLOR_RED);
         count++;
       }
     }
-    delay(100);
+    delay(80);
     lights.set_color(thisLed, G35::MAX_INTENSITY, COLOR_BLACK);
     lights.set_color(thisLed + 1, G35::MAX_INTENSITY, COLOR_BLACK);
   }
   
   // loop from the highest pin to the lowest
-  for (int thisLed = LIGHT_COUNT; thisLed >= 0; thisLed--) {
+  for (int thisLed = SIZE; thisLed >= 0; thisLed--) {
     int count = 1;
     lights.set_color(thisLed, G35::MAX_INTENSITY, COLOR_RED);
-    while (count <= 3) {
+    while (count <= 5) {
       lights.set_color(thisLed - count, G35::MAX_INTENSITY, COLOR_RED);
       count++;
     }
-    delay(100);
+    delay(80);
     lights.set_color(thisLed, G35::MAX_INTENSITY, COLOR_BLACK);
     lights.set_color(thisLed - 1, G35::MAX_INTENSITY, COLOR_BLACK);
   }
