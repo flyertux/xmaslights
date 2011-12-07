@@ -31,14 +31,15 @@ void setup() {
   lights.enumerate_forward(); // enumerate FORWARD to enable addressing
   lights.fill_color(0, LIGHT_COUNT, G35::MAX_INTENSITY, COLOR_GREEN); // Set everything Green first
 
-  for(i=0;i<1;i++){ // rows 
+  for(i=0;i<2;i++){ // rows 
     for(j=0;j<3;j++){ // lights
       lights.set_color(bottom[i][j],G35::MAX_INTENSITY, COLOR_WARMWHITE);
     }
   }
   
-  for(int i=0;i<4;i++){ // Top as Starlight, should twinkle
+  for(int i=0;i<5;i++){ // Top as Starlight, should twinkle
     lights.set_color(top[i],G35::MAX_INTENSITY, COLOR_YELLOW);
+    lights.set_color(tier[i],G35::MAX_INTENSITY, COLOR_YELLOW);
   }
 }
 
@@ -53,7 +54,6 @@ void loop() {
     ornamentrow[i]= row;
     ornaments[i]=ornament;
 
-    
     changeme = column[ornamentrow[row]][ornaments[ornament]];
     lights.set_color(changeme,G35::MAX_INTENSITY, COLOR_RED);
     delay(420);
