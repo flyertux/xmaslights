@@ -31,7 +31,7 @@ void SetupLights(){
     }
   }
   
-  for(i=0;i<5the;i++){ // Top as Starlight, should twinkle
+  for(i=0;i<5;i++){ // Top as Starlight, should twinkle
     lights.set_color(top[i],G35::MAX_INTENSITY, COLOR_YELLOW);
     lights.set_color(tier[i],G35::MAX_INTENSITY, COLOR_YELLOW);
   }
