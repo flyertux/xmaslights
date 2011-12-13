@@ -14,7 +14,7 @@ BasicChristmasTree:
 ## Light Setup
 
 Here is how our lights are run:
-
+```
             0 (top array is up here)
 1           o
 2          ooo
@@ -27,6 +27,7 @@ Here is how our lights are run:
 9  o     o     o    o
 10 o o o o     o o o o 
    (bottom arrays) 
+```
 
 ## Future Plans
 
